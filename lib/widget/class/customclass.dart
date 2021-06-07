@@ -1,7 +1,12 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:hive_sozluk_desktop/main.dart';
 import 'package:hive_sozluk_desktop/model/debouncer.dart';
+import 'package:hive_sozluk_desktop/model/theme/colors.dart';
 import 'package:hive_sozluk_desktop/provider/kelime_ara_list.dart';
+import 'package:simple_drawer/simple_drawer.dart';
 
 sapkalifonk(TextEditingController controller, String harf) {
   controller.text = controller.text + harf;
@@ -32,3 +37,19 @@ void textim(value) {
   value.selection =
       TextSelection.fromPosition(TextPosition(offset: value.text.length));
 }
+
+/* Widget leftSimpleDrawer(context) {
+  SimpleDrawer(
+    child: Container(
+      color: Colors.green,
+      height: MediaQuery.of(context).size.height,
+      width: 150,
+    ),
+    childWidth: 150,
+    direction: Direction.left,
+    id: "fadeColor",
+    fadeColor: Colors.blue.withOpacity(0.5),
+  );
+}
+ */
+

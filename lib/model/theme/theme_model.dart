@@ -78,7 +78,7 @@ class CustomTheme {
           disabledColor: CustomColors.gri,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-          buttonColor: CustomColors.renk4,
+          buttonColor: CustomColors.renk5,
         ));
   }
 

@@ -279,13 +279,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_advanced_drawer:
-    dependency: "direct main"
-    description:
-      name: flutter_advanced_drawer
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.2.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -590,6 +583,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  simple_drawer:
+    dependency: "direct main"
+    description:
+      name: simple_drawer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.10"
   sky_engine:
     dependency: transitive
     description: flutter

@@ -5,8 +5,8 @@ import 'package:hive_sozluk_desktop/model/theme/colors.dart';
 import 'package:hive_sozluk_desktop/provider/kelime_ara_list.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
+import 'mainPage.dart';
 import 'provider/mana_ara_list.dart';
-import 'widget/kelime_ara/kelime_ara_list_widget.dart';
 import 'main.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -32,8 +32,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     SystemChrome.setEnabledSystemUIOverlays([]);
     Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (BuildContext context) => KelimeAraList()),
-        ModalRoute.withName('/KelimePage'));
+        MaterialPageRoute(builder: (BuildContext context) => MainPage()),
+        ModalRoute.withName('/MainPage'));
   }
 
   Widget _buildFullscrenImage() {

@@ -1,14 +1,20 @@
 import 'dart:convert';
 
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_sozluk_desktop/model/theme/colors.dart';
+import 'package:hive_sozluk_desktop/provider/mana_ara_list.dart';
+import 'package:hive_sozluk_desktop/ui/desktop.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:simple_drawer/simple_drawer.dart';
 
 import 'main.dart';
+import 'mainPage.dart';
 import 'model/debouncer.dart';
 import 'onboarding.dart';
+import 'provider/kelime_ara_list.dart';
 
 class YukleniyorPage extends StatefulWidget {
   @override
@@ -28,7 +34,7 @@ class _YukleniyorPageState extends State<YukleniyorPage> {
   final _debouncer = DebouncerMain(seconds: 5);
 
   final String kelimePath = 'assets/szlkint.json';
-  final String manaPath = 'assets/manalar_data.json';
+  //final String manaPath = 'assets/manalar_data.json';
   Future<void> kelimeJson() async {
     var kelimeData = await rootBundle.loadString('assets/szlkint.json');
 
@@ -40,7 +46,7 @@ class _YukleniyorPageState extends State<YukleniyorPage> {
     return kelimeList;
   }
 
-  Future<void> manaJson() async {
+  /* Future<void> manaJson() async {
     var manaData = await rootBundle.loadString('assets/manalar_data.json');
 
     List<dynamic> decodedJson = json.decode(manaData);
@@ -49,7 +55,7 @@ class _YukleniyorPageState extends State<YukleniyorPage> {
     await sozlukBox.put('mana', manam);
 
     return manaList;
-  }
+  } */
 
   @override
   void initState() {
@@ -64,7 +70,7 @@ class _YukleniyorPageState extends State<YukleniyorPage> {
       percent = 0.2;
     });
 
-    await manaJson();
+    //await manaJson();
     setState(() {
       percent = 0.7;
     });
@@ -82,13 +88,37 @@ class _YukleniyorPageState extends State<YukleniyorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('LUGAT'),
-      ),
       body: Column(
         children: [
+          Row(
+            children: [
+              Expanded(
+                child: WindowTitleBarBox(
+                    child: MoveWindow(
+                  child: Container(
+                      alignment: Alignment.centerLeft,
+                      child: IconButton(
+                        onPressed: () {
+                          null;
+                        },
+                        icon: Image.asset('assets/images/img3.png'),
+                      )),
+                )),
+              ),
+              Expanded(
+                child: WindowTitleBarBox(
+                    child: Row(children: [
+                  Expanded(child: MoveWindow()),
+                  WindowButtons(),
+                ])),
+              ),
+            ],
+          ),
+          Image.asset(
+            'assets/images/cizgi.png',
+          ),
           Expanded(
-            flex: 1,
+            flex: 19,
             child: new LinearPercentIndicator(
               linearGradient: LinearGradient(
                 colors: [CustomColors.renk3, CustomColors.renk5],
@@ -102,7 +132,30 @@ class _YukleniyorPageState extends State<YukleniyorPage> {
               //progressColor: CustomColors.siyah,
             ),
           ),
-          Expanded(flex: 19, child: OnBoardingPage(hazir, message)),
+          Expanded(
+              flex: 1,
+              child: ElevatedButton(
+                onPressed: () {
+                  if (hazir) {
+                    getIt.registerSingleton<KelimeModel>(
+                        KelimeModelImplementation(),
+                        signalsReady: true);
+
+                    getIt.registerSingleton<ManaAraModel>(
+                        ManaAraModelImplementation(),
+                        signalsReady: true);
+
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => MainPage()),
+                        ModalRoute.withName('/MainPage'));
+                  } else {
+                    null;
+                  }
+                },
+                child: hazir ? Text('TAMAMLANDI...') : Text('HAZIRLANIYOR...'),
+              )),
         ],
       ),
     );

@@ -7,6 +7,7 @@ import 'package:turkish/turkish.dart';
 import '../main.dart';
 
 Box<Sozluk> sozlukBox = Hive.box<Sozluk>('Sozluk');
+Box<Sozluk> kayitBox = Hive.box<Sozluk>('Kyt');
 
 abstract class KelimeModel extends ChangeNotifier {
   String _searchvalue = '';
@@ -14,7 +15,9 @@ abstract class KelimeModel extends ChangeNotifier {
   bool _deyim = false;
   void incrementCounter();
   void getMMana();
+
   List<Kelime> kelimeler = sozlukBox.get('kelime').kelime;
+  List<Kelime> kayitList = List<Kelime>.empty(growable: true);
 
   List<Kelime> get item;
 

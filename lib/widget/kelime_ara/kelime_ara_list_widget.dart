@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:hive_sozluk_desktop/model/theme/colors.dart';
 
 import 'package:hive_sozluk_desktop/widget/kelime_ara/kelime.dart';
 import 'package:hive_sozluk_desktop/widget/kelime_ara/mana.dart';

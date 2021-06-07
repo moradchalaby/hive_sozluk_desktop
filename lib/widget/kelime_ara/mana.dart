@@ -228,7 +228,7 @@ class _ListManaState extends State<ListMana> {
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),

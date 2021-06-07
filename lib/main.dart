@@ -9,6 +9,7 @@ import 'package:hive/hive.dart';
 import 'package:hive_sozluk_desktop/mainPage.dart';
 import 'package:hive_sozluk_desktop/provider/mana_ara_list.dart';
 import 'package:hive_sozluk_desktop/widget/mana_ara/mana_ara_list_widget.dart';
+import 'package:path_provider/path_provider.dart';
 
 import 'loading.dart';
 
@@ -100,20 +101,21 @@ class Sozluk {
 GetIt getIt = GetIt.instance;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Directory document = await getApplicationDocumentsDirectory();
+  Directory document = await getApplicationDocumentsDirectory();
   Hive
-    ..init('assets')
+    ..init(document.path)
     ..registerAdapter(SozlukAdapter())
     ..registerAdapter(ManaAdapter())
     ..registerAdapter(KelimeAdapter());
 
   await Hive.openBox<Sozluk>('Sozluk');
+
   //await Hive.box<Sozluk>('Sozluk').clear();
 
   runApp(MyApp());
   doWhenWindowReady(() {
     final win = appWindow;
-    final initialSize = Size(350, 400);
+    final initialSize = Size(350, 500);
     win.minSize = Size(350, 200);
     win.size = initialSize;
     win.alignment = Alignment.topRight;
@@ -130,7 +132,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: title,
@@ -171,7 +172,7 @@ class _SplashScreenState extends State {
 
         // Alternative
         // getIt.getAsync<AppModel>().addListener(update);
-        SystemChrome.setEnabledSystemUIOverlays([]);
+
         Navigator.of(context).pushReplacementNamed('/MainPage');
       }
     });
