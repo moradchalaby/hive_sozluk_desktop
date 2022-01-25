@@ -5,6 +5,7 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
+import 'package:desktop_window/desktop_window.dart';
 
 import 'package:hive/hive.dart';
 import 'package:hive_sozluk_desktop/mainPage.dart';
@@ -116,14 +117,19 @@ void main() async {
   runApp(MyApp());
   doWhenWindowReady(() {
     final win = appWindow;
-    final initialSize = Size(350, window.physicalSize.height);
-    win.minSize = Size(350, 500);
+
+    win.maximize();
+
+    win.maxSize = Size(350, 3000);
+
+    final initialSize = Size(350, win.size.height - 30);
     win.size = initialSize;
     win.alignment = Alignment.topRight;
+    //win.alignment = Alignment.topRight;
     win.title = "LUGAT -Türkçe sözlük ve kafiye programı";
 
     win.show();
-
+    print(win.size.height);
     return win.show();
   });
 }

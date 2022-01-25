@@ -36,14 +36,15 @@ abstract class ManaAraModel extends ChangeNotifier {
     //? textfield den gelen metin burada değişkenlere atanıyor =>
     _searchm = searchm;
     _searchk = searchk;
-    _deyim = deyim;
+    _deyim = false;
     notifyListeners();
   }
 }
 
 class ManaAraModelImplementation extends ManaAraModel {
   int _itm = 0;
-  List<Kelime> _items = sozlukBox.get('kelime').kelime;
+  List<Kelime> _items =
+      sozlukBox.get('kelime').kelime.where((w) => w.deyimid == 0).toList();
 
   ManaAraModelImplementation() {
     Future.delayed(Duration(seconds: 3)).then((_) => getIt.signalReady(this));
@@ -60,24 +61,19 @@ class ManaAraModelImplementation extends ManaAraModel {
   bool get deyim => _deyim;
   @override
   void incrementCounter() async {
-    _items = deyim
-        ? kelimeler
-            .where((a) => ((removeDiacritics(a.mana.join(' ')))
+    _items = kelimeler
+        .where((a) =>
+            a.deyimid == 0 &&
+            ((removeDiacritics(a.mana.join(' ')))
                     .toLowerCaseTr()
                     .contains(removeDiacritics(_searchm).toLowerCaseTr()) &&
                 (a.text.toLowerCaseTr()).endsWith(_searchk.toLowerCaseTr())))
-            .toList()
-        : kelimeler
-            .where((a) =>
-                a.deyimid == 0 &&
-                ((removeDiacritics(a.mana.join(' ')))
-                        .toLowerCaseTr()
-                        .contains(removeDiacritics(_searchm).toLowerCaseTr()) &&
-                    (a.text.toLowerCaseTr())
-                        .endsWith(_searchk.toLowerCaseTr())))
-            .toList();
+        .toList();
     if (_items.isNotEmpty) {
-      _mana = kelimeler.where((w) => w.id == _items.first.id).toList().first;
+      _mana = kelimeler
+          .where((w) => w.deyimid == 0 && w.id == _items.first.id)
+          .toList()
+          .first;
     }
 
     notifyListeners();

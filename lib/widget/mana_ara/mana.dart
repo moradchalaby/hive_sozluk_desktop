@@ -25,6 +25,7 @@ class _ListManaAraManaState extends State<ListManaAraMana> {
   Box<Sozluk> sozlukBox;
   var manaList = getIt<ManaAraModel>().mana.mana;
   Kelime kelime = getIt<ManaAraModel>().mana;
+  int kelimesay = getIt<ManaAraModel>().item.length;
   @override
   void initState() {
     getIt
@@ -42,6 +43,7 @@ class _ListManaAraManaState extends State<ListManaAraMana> {
 
   void update() => setState(() => {
         kelime = getIt<ManaAraModel>().mana,
+        kelimesay = getIt<ManaAraModel>().item.length,
         manaList = kelime.mana,
       });
 
@@ -54,6 +56,21 @@ class _ListManaAraManaState extends State<ListManaAraMana> {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
+              TextButton(
+                style: ButtonStyle(
+                  padding:
+                      MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(0)),
+                  overlayColor:
+                      MaterialStateProperty.all<Color>(CustomColors.renk5),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(CustomColors.renk5),
+                ),
+                onPressed: () {
+                  print('ad');
+                },
+                child: Text(kelimesay.toString() + ' kelime bulundu.',
+                    style: Theme.of(context).textTheme.headline1),
+              ),
               Container(
                 height: 40,
                 decoration: BoxDecoration(

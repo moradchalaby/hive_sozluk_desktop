@@ -36,7 +36,11 @@ class _KelimeAraListState extends State<KelimeAraList> {
             );
           } else {
             return new Scaffold(
-              body: new Center(child: Text('Kelime Ara')),
+              body: new Center(
+                  child: Text(
+                'Kelimeler listeleniyor...',
+                style: Theme.of(context).textTheme.headline1,
+              )),
             );
           }
         });

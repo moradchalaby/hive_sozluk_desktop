@@ -61,6 +61,7 @@ dependencies:
 
   #ekran fotosu alma
   screenshot: ^0.3.0
+  desktop_window: ^0.4.0
   #paylaşma
   #share_plus: ^2.1.2
 dev_dependencies:

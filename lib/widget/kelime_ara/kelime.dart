@@ -25,7 +25,7 @@ class _ListKelimeState extends State<ListKelime> {
   bool deyim = false;
   String searchtext;
   TextEditingController tcontroller = new TextEditingController();
-
+  int kelimesec = getIt<KelimeModel>().itm;
   var kelimeList = getIt<KelimeModel>().item;
   int kelime = getIt<KelimeModel>().itm;
   final _debouncer = Debouncer(milliseconds: 200);
@@ -71,7 +71,6 @@ class _ListKelimeState extends State<ListKelime> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(kelimesay + ' kelime bulundu.'),
           /*  Padding(
             padding: const EdgeInsets.only(left: 3, right: 3),
             child: new TextField(
@@ -111,11 +110,20 @@ class _ListKelimeState extends State<ListKelime> {
                   if (kelimeList != null) {
                     return TextButton(
                       style: ButtonStyle(
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                            EdgeInsets.all(0)),
-                      ),
+                          padding: MaterialStateProperty.all<EdgeInsets>(
+                              EdgeInsets.all(0)),
+                          overlayColor: MaterialStateProperty.all<Color>(
+                              CustomColors.renk5),
+                          backgroundColor: kelimesec == index
+                              ? MaterialStateProperty.all<Color>(
+                                  CustomColors.renk5)
+                              : MaterialStateProperty.all<Color>(
+                                  CustomColors.renk4)),
                       onPressed: () {
                         getMana(context, kelimeList, index);
+                        setState(() {
+                          kelimesec = index;
+                        });
                       },
                       child: AutoSizeText(
                         kelimeList[index].text,
@@ -131,7 +139,7 @@ class _ListKelimeState extends State<ListKelime> {
                   }
                 }),
           ),
-          Row(
+          /*  Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
@@ -196,7 +204,7 @@ class _ListKelimeState extends State<ListKelime> {
                 ),
               ),
             ],
-          )
+          ) */
         ],
       ),
     );

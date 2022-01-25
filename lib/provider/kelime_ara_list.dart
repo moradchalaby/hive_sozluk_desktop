@@ -11,8 +11,8 @@ Box<Sozluk> kayitBox = Hive.box<Sozluk>('Kyt');
 
 abstract class KelimeModel extends ChangeNotifier {
   String _searchvalue = '';
-  bool _sapkali = false;
-  bool _deyim = false;
+  bool _sapkali = true;
+  bool _deyim = true;
   void incrementCounter();
   void getMMana();
 

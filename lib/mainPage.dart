@@ -30,7 +30,7 @@ class _MainPageState extends State<MainPage> {
   TextEditingController tcontroller = new TextEditingController();
   final _debouncer = Debouncer(milliseconds: 200);
   bool sapkali = false;
-  bool deyim = false;
+  bool deyim = true;
 
   @override
   Widget build(BuildContext context) {
@@ -149,8 +149,8 @@ class _MainPageState extends State<MainPage> {
                               "â",
                               textAlign: TextAlign.center,
                               style: sapkali
-                                  ? Theme.of(context).textTheme.headline1
-                                  : Theme.of(context).textTheme.caption,
+                                  ? Theme.of(context).textTheme.caption
+                                  : Theme.of(context).textTheme.headline1,
                             ),
                           ),
                         ),
@@ -253,13 +253,13 @@ class _MainPageState extends State<MainPage> {
                           textim(mcontroller);
                           _debouncer.run(() {
                             getIt<ManaAraModel>().changeSearchString(
-                                value, kcontroller.text, deyim);
+                                value, kcontroller.text, false);
                             getIt<ManaAraModel>().incrementCounter();
                           });
                         },
                       ),
                     ),
-                    Expanded(
+                    /*   Expanded(
                       flex: 1,
                       child: InkWell(
                         onTap: () {
@@ -319,7 +319,7 @@ class _MainPageState extends State<MainPage> {
                                 ),
                         ),
                       ),
-                    ),
+                    ), */
                   ],
                 ),
           Image.asset(

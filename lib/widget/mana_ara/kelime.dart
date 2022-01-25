@@ -16,7 +16,8 @@ class ListManaAraKelime extends StatefulWidget {
 }
 
 class _ListManaAraKelimeState extends State<ListManaAraKelime> {
-  ScrollController controller;
+  ScrollController controller =
+      ScrollController(initialScrollOffset: 0.0, keepScrollOffset: false);
   bool sapkali = false;
   bool deyim = false;
   TextEditingController mcontroller = new TextEditingController();
@@ -25,6 +26,7 @@ class _ListManaAraKelimeState extends State<ListManaAraKelime> {
   /* var controller =
       IndexedScrollController(initialIndex: 0, initialScrollOffset: 0.0); */
   var kelimeList = getIt<ManaAraModel>().item;
+  int kelimesec = 0;
   final _debouncer = Debouncer(milliseconds: 300);
   getMana(context, data, index) {
     getIt<ManaAraModel>().changeSearchmana(data[index].id);
@@ -49,7 +51,8 @@ class _ListManaAraKelimeState extends State<ListManaAraKelime> {
   void update() => setState(() => {
         deyim = getIt<ManaAraModel>().deyim,
         kelimeList = getIt<ManaAraModel>().item,
-        controller = ScrollController(initialScrollOffset: 0.0)
+        kelimesec = 0,
+        controller.jumpTo
       });
 
   @override
@@ -114,8 +117,11 @@ class _ListManaAraKelimeState extends State<ListManaAraKelime> {
                       ScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
                   itemCount: kelimeList.length,
                   separatorBuilder: (context, index) {
-                    return Image.asset(
-                      'assets/images/cizgi.png',
+                    return new Container(
+                      padding: EdgeInsets.zero,
+                      margin: EdgeInsets.zero,
+                      height: 0.05,
+                      color: Colors.white,
                     );
                   },
                   controller: controller,
@@ -132,11 +138,20 @@ class _ListManaAraKelimeState extends State<ListManaAraKelime> {
                     } else {
                       return new TextButton(
                         style: ButtonStyle(
-                          padding: MaterialStateProperty.all<EdgeInsets>(
-                              EdgeInsets.all(0)),
-                        ),
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                                EdgeInsets.all(0)),
+                            overlayColor: MaterialStateProperty.all<Color>(
+                                CustomColors.renk5),
+                            backgroundColor: kelimesec == index
+                                ? MaterialStateProperty.all<Color>(
+                                    CustomColors.renk5)
+                                : MaterialStateProperty.all<Color>(
+                                    CustomColors.renk4)),
                         onPressed: () {
                           getMana(context, kelimeList, index);
+                          setState(() {
+                            kelimesec = index;
+                          });
                         },
                         child: AutoSizeText(
                           kelimeList[index].text,
@@ -163,7 +178,7 @@ class _ListManaAraKelimeState extends State<ListManaAraKelime> {
                       );  */
                     }
                   })),
-          InkWell(
+          /* InkWell(
             onTap: () {
               setState(() {
                 deyim = !deyim;
@@ -193,7 +208,7 @@ class _ListManaAraKelimeState extends State<ListManaAraKelime> {
                       size: 16,
                     ),
             ),
-          ),
+          ), */
         ],
       ),
     );
