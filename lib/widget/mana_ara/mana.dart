@@ -54,9 +54,6 @@ class _ListManaAraManaState extends State<ListManaAraMana> {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: [
-              Image.asset(
-                'assets/images/cizgi.png',
-              ),
               Container(
                 height: 40,
                 decoration: BoxDecoration(

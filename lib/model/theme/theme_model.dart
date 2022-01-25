@@ -31,6 +31,8 @@ class CustomTheme {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
         ),
+        // ignore: deprecated_member_use
+        textSelectionColor: CustomColors.siyah,
         elevatedButtonTheme: ElevatedButtonThemeData(
             // 4
             style: ButtonStyle(
@@ -38,7 +40,8 @@ class CustomTheme {
         textTheme: TextTheme(
           headline1: TextStyle(
               color: CustomColors.renk1,
-              wordSpacing: 0.0,
+              letterSpacing: 1.1,
+              wordSpacing: 0.1,
               fontFamily: 'Minion',
               fontSize: 20,
               fontWeight: FontWeight.w300),
@@ -84,22 +87,69 @@ class CustomTheme {
 
   static ThemeData get darkTheme {
     return ThemeData(
-        primaryColor: CustomColors.renk5,
-        scaffoldBackgroundColor: CustomColors.siyah,
+        //2
+
+        primaryColor: CustomColors.renk4,
+        scaffoldBackgroundColor: CustomColors.renk5,
         fontFamily: 'Scopoe', //3
         cardTheme: CardTheme(
-          color: CustomColors.renk5,
+          color: CustomColors.renk3,
           shadowColor: CustomColors.siyah,
           elevation: 5,
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+        ),
+        // ignore: deprecated_member_use
+        textSelectionColor: CustomColors.siyah,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            // 4
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.resolveWith(getColor))),
+        textTheme: TextTheme(
+          headline1: TextStyle(
+              color: CustomColors.renk1,
+              letterSpacing: 1.1,
+              wordSpacing: 0.1,
+              fontFamily: 'Minion',
+              fontSize: 20,
+              fontWeight: FontWeight.w300),
+          headline2: TextStyle(
+              color: CustomColors.renk1,
+              fontFamily: 'Rakkas',
+              fontSize: 20,
+              fontWeight: FontWeight.w100),
+          headline3: TextStyle(
+              color: CustomColors.renk1,
+              fontFamily: 'Minion',
+              fontSize: 16,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w400),
+          headline5: TextStyle(
+              color: CustomColors.renk1.withOpacity(0.5),
+              fontFamily: 'Minion',
+              fontSize: 16,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.normal),
+          headline4: TextStyle(
+              color: CustomColors.renk2,
+              fontFamily: 'Minion',
+              fontSize: 16,
+              //fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w600),
+          caption: TextStyle(
+            color: CustomColors.renk2,
+            fontFamily: 'Minion',
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            decoration: TextDecoration.lineThrough,
+          ),
         ),
         buttonTheme: ButtonThemeData(
           // 4
-
+          disabledColor: CustomColors.gri,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
-          buttonColor: CustomColors.renk4,
+          buttonColor: CustomColors.renk5,
         ));
   }
 }

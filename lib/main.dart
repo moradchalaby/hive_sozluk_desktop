@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
@@ -115,8 +116,8 @@ void main() async {
   runApp(MyApp());
   doWhenWindowReady(() {
     final win = appWindow;
-    final initialSize = Size(350, 500);
-    win.minSize = Size(350, 200);
+    final initialSize = Size(350, window.physicalSize.height);
+    win.minSize = Size(350, 500);
     win.size = initialSize;
     win.alignment = Alignment.topRight;
     win.title = "LUGAT -Türkçe sözlük ve kafiye programı";

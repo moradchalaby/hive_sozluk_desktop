@@ -62,10 +62,7 @@ class _ListManaAraKelimeState extends State<ListManaAraKelime> {
       width: MediaQuery.of(context).size.width,
       child: Column(
         children: [
-          Image.asset(
-            'assets/images/cizgi.png',
-          ),
-          Padding(
+          /*   Padding(
             padding: const EdgeInsets.only(left: 3, right: 3),
             child: new TextField(
               style: Theme.of(context).textTheme.headline3,
@@ -109,7 +106,7 @@ class _ListManaAraKelimeState extends State<ListManaAraKelime> {
           ),
           Image.asset(
             'assets/images/cizgi.png',
-          ),
+          ), */
           Expanded(
               child: ListView.separated(
                   // emptyItemBuilder: (context, index) => Text('geleyor'),
@@ -133,10 +130,25 @@ class _ListManaAraKelimeState extends State<ListManaAraKelime> {
                             AlwaysStoppedAnimation<Color>(CustomColors.renk4),
                       ));
                     } else {
-                      return ListTile(
-                        onTap: () {
+                      return new TextButton(
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all<EdgeInsets>(
+                              EdgeInsets.all(0)),
+                        ),
+                        onPressed: () {
                           getMana(context, kelimeList, index);
                         },
+                        child: AutoSizeText(
+                          kelimeList[index].text,
+                          textAlign: TextAlign.justify,
+                          maxLines: 1,
+                          style: kelimeList[index].deyimid == 0
+                              ? Theme.of(context).textTheme.headline1
+                              : Theme.of(context).textTheme.headline4,
+                        ),
+                      );
+                      /*ListTile(
+                        onTap: () {},
                         title: Container(
                           width: 50,
                           child: AutoSizeText(
@@ -148,7 +160,7 @@ class _ListManaAraKelimeState extends State<ListManaAraKelime> {
                                 : Theme.of(context).textTheme.headline4,
                           ),
                         ),
-                      );
+                      );  */
                     }
                   })),
           InkWell(

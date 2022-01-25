@@ -22,6 +22,8 @@ abstract class KelimeModel extends ChangeNotifier {
   List<Kelime> get item;
 
   int get itm;
+  int get kelimesay;
+
   int _searchmana;
 
   Kelime get mana;
@@ -43,7 +45,7 @@ abstract class KelimeModel extends ChangeNotifier {
 class KelimeModelImplementation extends KelimeModel {
   List<Kelime> _items = sozlukBox.get('kelime').kelime;
   int _itm = 0;
-
+  int _kelimesay;
   Kelime _mana = sozlukBox.get('kelime').kelime.first;
   KelimeModelImplementation() {
     Future.delayed(Duration(seconds: 3)).then((_) => getIt.signalReady(this));
@@ -51,7 +53,8 @@ class KelimeModelImplementation extends KelimeModel {
 
   @override
   List<Kelime> get item => _items;
-
+  @override
+  int get kelimesay => _kelimesay;
   @override
   int get itm => _itm == -1 ? 0 : _itm;
   @override
@@ -117,7 +120,7 @@ class KelimeModelImplementation extends KelimeModel {
     }
     print(_itm);
     _mana = kelimeler.where((w) => w.id == _items[_itm].id).first;
-
+    _kelimesay = item.length;
     notifyListeners();
   }
 

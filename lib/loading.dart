@@ -1,12 +1,10 @@
 import 'dart:convert';
 
-import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_sozluk_desktop/model/theme/colors.dart';
 import 'package:hive_sozluk_desktop/provider/mana_ara_list.dart';
-import 'package:hive_sozluk_desktop/ui/desktop.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:simple_drawer/simple_drawer.dart';
 
@@ -91,28 +89,7 @@ class _YukleniyorPageState extends State<YukleniyorPage> {
       body: Column(
         children: [
           Row(
-            children: [
-              Expanded(
-                child: WindowTitleBarBox(
-                    child: MoveWindow(
-                  child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: IconButton(
-                        onPressed: () {
-                          null;
-                        },
-                        icon: Image.asset('assets/images/img3.png'),
-                      )),
-                )),
-              ),
-              Expanded(
-                child: WindowTitleBarBox(
-                    child: Row(children: [
-                  Expanded(child: MoveWindow()),
-                  WindowButtons(),
-                ])),
-              ),
-            ],
+            children: [],
           ),
           Image.asset(
             'assets/images/cizgi.png',

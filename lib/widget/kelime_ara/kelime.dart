@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +29,7 @@ class _ListKelimeState extends State<ListKelime> {
   var kelimeList = getIt<KelimeModel>().item;
   int kelime = getIt<KelimeModel>().itm;
   final _debouncer = Debouncer(milliseconds: 200);
-
+  String kelimesay = getIt<KelimeModel>().kelimeler.length.toString();
   @override
   void initState() {
     getIt
@@ -50,24 +52,27 @@ class _ListKelimeState extends State<ListKelime> {
           {
             kelime = getIt<KelimeModel>().itm,
             controller.jumpToIndex(kelime),
-          }
+          },
+        kelimesay = getIt<KelimeModel>().kelimeler.length.toString(),
       });
 
   @override
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([]);
     return Container(
+      margin: EdgeInsets.zero,
+      padding: EdgeInsets.zero,
       decoration: BoxDecoration(
         color: CustomColors.renk4,
+
         /*  borderRadius: BorderRadius.only(
             topLeft: Radius.circular(50), topRight: Radius.circular(50)), */
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(
-            'assets/images/cizgi.png',
-          ),
-          Padding(
+          Text(kelimesay + ' kelime bulundu.'),
+          /*  Padding(
             padding: const EdgeInsets.only(left: 3, right: 3),
             child: new TextField(
               style: Theme.of(context).textTheme.headline3,
@@ -85,37 +90,40 @@ class _ListKelimeState extends State<ListKelime> {
                 });
               },
             ),
-          ),
-          Image.asset(
-            'assets/images/cizgi.png',
-          ),
+          ), */
+
           Expanded(
+            flex: 1,
             child: IndexedListView.separated(
                 physics: ScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
                 minItemCount: 0,
                 separatorBuilder: (context, index) {
-                  return Image.asset(
-                    'assets/images/cizgi.png',
+                  return new Container(
+                    padding: EdgeInsets.zero,
+                    margin: EdgeInsets.zero,
+                    height: 0.05,
+                    color: Colors.white,
                   );
                 },
                 controller: controller,
                 maxItemCount: kelimeList.length,
                 itemBuilder: (context, index) {
                   if (kelimeList != null) {
-                    return ListTile(
-                      onTap: () {
+                    return TextButton(
+                      style: ButtonStyle(
+                        padding: MaterialStateProperty.all<EdgeInsets>(
+                            EdgeInsets.all(0)),
+                      ),
+                      onPressed: () {
                         getMana(context, kelimeList, index);
                       },
-                      title: Container(
-                        width: 50,
-                        child: AutoSizeText(
-                          kelimeList[index].text,
-                          textAlign: TextAlign.start,
-                          maxLines: 1,
-                          style: kelimeList[index].deyimid == 0
-                              ? Theme.of(context).textTheme.headline1
-                              : Theme.of(context).textTheme.headline4,
-                        ),
+                      child: AutoSizeText(
+                        kelimeList[index].text,
+                        textAlign: TextAlign.justify,
+                        maxLines: 1,
+                        style: kelimeList[index].deyimid == 0
+                            ? Theme.of(context).textTheme.headline1
+                            : Theme.of(context).textTheme.headline4,
                       ),
                     );
                   } else {
