@@ -115,16 +115,15 @@ void main() async {
   //await Hive.box<Sozluk>('Sozluk').clear();
 
   runApp(MyApp());
-  doWhenWindowReady(() {
+  doWhenWindowReady(() async {
     final win = appWindow;
 
-    win.maximize();
-
-    win.maxSize = Size(350, 3000);
-
-    final initialSize = Size(350, win.size.height - 30);
+    win.minSize = Size(350, 400);
+    win.maxSize = Size(350, 2400);
+    await DesktopWindow.setFullScreen(true);
+    final initialSize = Size(350, win.size.height);
     win.size = initialSize;
-    win.alignment = Alignment.topRight;
+    win.alignment = Alignment.centerRight;
     //win.alignment = Alignment.topRight;
     win.title = "LUGAT -Türkçe sözlük ve kafiye programı";
 

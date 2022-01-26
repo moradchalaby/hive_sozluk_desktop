@@ -112,13 +112,13 @@ class _ListKelimeState extends State<ListKelime> {
                       style: ButtonStyle(
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               EdgeInsets.all(0)),
-                          overlayColor: MaterialStateProperty.all<Color>(
-                              CustomColors.renk5),
+                          overlayColor:
+                              MaterialStateProperty.all<Color>(Colors.red[400]),
                           backgroundColor: kelimesec == index
                               ? MaterialStateProperty.all<Color>(
-                                  CustomColors.renk5)
+                                  Colors.red[900])
                               : MaterialStateProperty.all<Color>(
-                                  CustomColors.renk4)),
+                                  CustomColors.renk5)),
                       onPressed: () {
                         getMana(context, kelimeList, index);
                         setState(() {

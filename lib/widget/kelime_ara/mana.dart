@@ -80,7 +80,7 @@ class _ListManaState extends State<ListMana> {
                     padding: EdgeInsets.zero,
                     height: 40,
                     decoration: BoxDecoration(
-                        color: CustomColors.renk4,
+                        color: CustomColors.renk5,
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20))),
@@ -270,7 +270,7 @@ class _ListManaState extends State<ListMana> {
       floatingActionButton: FloatingActionButton(
           mini: true,
           tooltip: 'müstensih',
-          backgroundColor: CustomColors.renk3,
+          backgroundColor: CustomColors.renk5,
           elevation: 7.0,
           onPressed: () {
             Clipboard.setData(ClipboardData(text: kelime.text + ':\n' + copy))
@@ -282,7 +282,7 @@ class _ListManaState extends State<ListMana> {
                       kelime.text +
                       '\" Kelismesinin mânâsı istinsah edildi.'),
                   dismissDirection: DismissDirection.horizontal,
-                  backgroundColor: CustomColors.renk4,
+                  backgroundColor: CustomColors.renk5,
                   duration: Duration(milliseconds: 1500),
                 )); // -> show a notification
               },

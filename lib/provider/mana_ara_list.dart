@@ -64,9 +64,9 @@ class ManaAraModelImplementation extends ManaAraModel {
     _items = kelimeler
         .where((a) =>
             a.deyimid == 0 &&
-            ((removeDiacritics(a.mana.join(' ')))
+            ((a.mana.join(' '))
                     .toLowerCaseTr()
-                    .contains(removeDiacritics(_searchm).toLowerCaseTr()) &&
+                    .contains(_searchm.toLowerCaseTr()) &&
                 (a.text.toLowerCaseTr()).endsWith(_searchk.toLowerCaseTr())))
         .toList();
     if (_items.isNotEmpty) {

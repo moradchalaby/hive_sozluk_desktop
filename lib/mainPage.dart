@@ -240,23 +240,30 @@ class _MainPageState extends State<MainPage> {
                     ),
                     Expanded(
                       flex: 1,
-                      child: new TextField(
-                        style: Theme.of(context).textTheme.headline3,
-                        focusNode: mkelimeFocus,
-                        cursorRadius: Radius.circular(50),
-                        controller: mcontroller,
-                        decoration: new InputDecoration(
-                            hintText: 'Mana Ara...',
-                            hintStyle: Theme.of(context).textTheme.headline5,
-                            border: InputBorder.none),
-                        onChanged: (value) {
-                          textim(mcontroller);
-                          _debouncer.run(() {
-                            getIt<ManaAraModel>().changeSearchString(
-                                value, kcontroller.text, false);
-                            getIt<ManaAraModel>().incrementCounter();
-                          });
-                        },
+                      child: Theme(
+                        data: ThemeData(
+                            textSelectionTheme: TextSelectionThemeData(
+                                selectionColor: CustomColors.siyah,
+                                selectionHandleColor: CustomColors.mavi,
+                                cursorColor: CustomColors.renk2)),
+                        child: new TextField(
+                          style: Theme.of(context).textTheme.headline3,
+                          focusNode: mkelimeFocus,
+                          cursorRadius: Radius.circular(50),
+                          controller: mcontroller,
+                          decoration: new InputDecoration(
+                              hintText: 'Mana Ara...',
+                              hintStyle: Theme.of(context).textTheme.headline5,
+                              border: InputBorder.none),
+                          onChanged: (value) {
+                            textim(mcontroller);
+                            _debouncer.run(() {
+                              getIt<ManaAraModel>().changeSearchString(
+                                  value, kcontroller.text, false);
+                              getIt<ManaAraModel>().incrementCounter();
+                            });
+                          },
+                        ),
                       ),
                     ),
                     /*   Expanded(

@@ -21,8 +21,8 @@ class CustomTheme {
     return ThemeData(
         //2
 
-        primaryColor: CustomColors.renk4,
-        scaffoldBackgroundColor: CustomColors.renk5,
+        primaryColor: CustomColors.renk5,
+        scaffoldBackgroundColor: CustomColors.renk4,
         fontFamily: 'Scopoe', //3
         cardTheme: CardTheme(
           color: CustomColors.renk3,
@@ -56,18 +56,18 @@ class CustomTheme {
               fontSize: 16,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w400),
+          headline4: TextStyle(
+              color: Colors.amber[200],
+              fontFamily: 'Minion',
+              fontSize: 16,
+              //fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w600),
           headline5: TextStyle(
               color: CustomColors.renk1.withOpacity(0.5),
               fontFamily: 'Minion',
               fontSize: 16,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.normal),
-          headline4: TextStyle(
-              color: CustomColors.renk2,
-              fontFamily: 'Minion',
-              fontSize: 16,
-              //fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.w600),
           caption: TextStyle(
             color: CustomColors.renk2,
             fontFamily: 'Minion',
