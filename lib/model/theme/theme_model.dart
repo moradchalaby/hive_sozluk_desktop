@@ -38,6 +38,25 @@ class CustomTheme {
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.resolveWith(getColor))),
         textTheme: TextTheme(
+          bodyText1: TextStyle(
+              color: CustomColors.manaArafield,
+              fontFamily: 'Minion',
+              fontSize: 16,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.normal),
+          subtitle1: TextStyle(
+              color: CustomColors.anakelimeler,
+              letterSpacing: 1.1,
+              wordSpacing: 0.1,
+              fontFamily: 'Minion',
+              fontSize: 20,
+              fontWeight: FontWeight.w300),
+          subtitle2: TextStyle(
+              color: CustomColors.deyim,
+              fontFamily: 'Minion',
+              fontSize: 16,
+              //fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w600),
           headline1: TextStyle(
               color: CustomColors.renk1,
               letterSpacing: 1.1,
@@ -46,7 +65,7 @@ class CustomTheme {
               fontSize: 20,
               fontWeight: FontWeight.w300),
           headline2: TextStyle(
-              color: CustomColors.renk1,
+              color: CustomColors.osmanlica,
               fontFamily: 'Rakkas',
               fontSize: 20,
               fontWeight: FontWeight.w100),
@@ -57,19 +76,19 @@ class CustomTheme {
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w400),
           headline4: TextStyle(
-              color: Colors.amber[200],
+              color: CustomColors.deyim,
               fontFamily: 'Minion',
               fontSize: 16,
               //fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w600),
           headline5: TextStyle(
-              color: CustomColors.renk1.withOpacity(0.5),
+              color: CustomColors.kelimeAra,
               fontFamily: 'Minion',
               fontSize: 16,
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.normal),
           caption: TextStyle(
-            color: CustomColors.renk2,
+            color: CustomColors.deyim,
             fontFamily: 'Minion',
             fontSize: 16,
             fontWeight: FontWeight.w600,

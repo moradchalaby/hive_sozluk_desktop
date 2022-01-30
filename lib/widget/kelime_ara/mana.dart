@@ -69,6 +69,7 @@ class _ListManaState extends State<ListMana> {
       body: SizedBox(
           width: MediaQuery.of(context).size.width,
           child: Container(
+            //!decoration: BoxDecoration(color: CustomColors.manaArkaplan),
             margin: EdgeInsets.zero,
             padding: EdgeInsets.zero,
             height: MediaQuery.of(context).size.height,
@@ -80,7 +81,7 @@ class _ListManaState extends State<ListMana> {
                     padding: EdgeInsets.zero,
                     height: 40,
                     decoration: BoxDecoration(
-                        color: CustomColors.renk5,
+                        color: CustomColors.renk5, //! kelime arkaplan
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20))),
@@ -101,8 +102,8 @@ class _ListManaState extends State<ListMana> {
                                   textAlign: TextAlign.start,
                                   maxLines: 1,
                                   style: kelime.deyimid == 0
-                                      ? Theme.of(context).textTheme.headline1
-                                      : Theme.of(context).textTheme.headline4,
+                                      ? Theme.of(context).textTheme.subtitle1
+                                      : Theme.of(context).textTheme.subtitle2,
                                 ),
                               ),
                             ),
@@ -219,22 +220,27 @@ class _ListManaState extends State<ListMana> {
                                     tags: {
                                       '_': StyledTextTag(
                                           style: TextStyle(
-                                              color: CustomColors.mavi)),
+                                              color: CustomColors
+                                                  .rakam)), //?sayılar
                                       '*': StyledTextTag(
                                           style: TextStyle(
-                                              color: CustomColors.sari)),
+                                              color:
+                                                  CustomColors.aruz)), //?Aruz
                                       '#': StyledTextTag(
                                           style: TextStyle(
-                                              height: 2,
+                                              height: 1,
                                               fontStyle: FontStyle.italic,
-                                              color: CustomColors.renk3)),
+                                              color:
+                                                  CustomColors.ornek)), //?örnek
                                       '%': StyledTextTag(
                                           style: TextStyle(
-                                              color: CustomColors.gri)),
+                                              color: CustomColors
+                                                  .aciklama)), //?değişim açıklama
                                       '^': StyledTextTag(
                                           style: TextStyle(
                                               height: 2,
-                                              color: CustomColors.kirmizi)),
+                                              color:
+                                                  CustomColors.tur)), //?özellik
                                       'link': StyledTextActionTag(
                                         (text, attrs) => _debouncer.run(() {
                                           print(aranan);
@@ -246,7 +252,8 @@ class _ListManaState extends State<ListMana> {
                                         }),
                                         style: TextStyle(
                                             decorationThickness: 0.5,
-                                            decorationColor: CustomColors.renk3,
+                                            decorationColor:
+                                                CustomColors.renk3, //!mana renk
                                             decoration:
                                                 TextDecoration.underline),
                                       ),
@@ -270,7 +277,7 @@ class _ListManaState extends State<ListMana> {
       floatingActionButton: FloatingActionButton(
           mini: true,
           tooltip: 'müstensih',
-          backgroundColor: CustomColors.renk5,
+          backgroundColor: CustomColors.renk5, //!Kopyalaarkaplan
           elevation: 7.0,
           onPressed: () {
             Clipboard.setData(ClipboardData(text: kelime.text + ':\n' + copy))
@@ -280,9 +287,10 @@ class _ListManaState extends State<ListMana> {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   content: Text("\"" +
                       kelime.text +
-                      '\" Kelismesinin mânâsı istinsah edildi.'),
+                      '\" Kelimesinin mânâsı istinsah edildi.'),
                   dismissDirection: DismissDirection.horizontal,
-                  backgroundColor: CustomColors.renk5,
+                  backgroundColor:
+                      CustomColors.renk5, //!kopyalama bildirim arkaplan
                   duration: Duration(milliseconds: 1500),
                 )); // -> show a notification
               },

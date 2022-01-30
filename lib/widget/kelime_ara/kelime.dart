@@ -112,11 +112,11 @@ class _ListKelimeState extends State<ListKelime> {
                       style: ButtonStyle(
                           padding: MaterialStateProperty.all<EdgeInsets>(
                               EdgeInsets.all(0)),
-                          overlayColor:
-                              MaterialStateProperty.all<Color>(Colors.red[400]),
+                          overlayColor: MaterialStateProperty.all<Color>(
+                              CustomColors.hover.withOpacity(0.5)),
                           backgroundColor: kelimesec == index
                               ? MaterialStateProperty.all<Color>(
-                                  Colors.red[900])
+                                  CustomColors.hover.withOpacity(0.4))
                               : MaterialStateProperty.all<Color>(
                                   CustomColors.renk5)),
                       onPressed: () {
@@ -130,8 +130,8 @@ class _ListKelimeState extends State<ListKelime> {
                         textAlign: TextAlign.justify,
                         maxLines: 1,
                         style: kelimeList[index].deyimid == 0
-                            ? Theme.of(context).textTheme.headline1
-                            : Theme.of(context).textTheme.headline4,
+                            ? Theme.of(context).textTheme.subtitle1
+                            : Theme.of(context).textTheme.subtitle2,
                       ),
                     );
                   } else {

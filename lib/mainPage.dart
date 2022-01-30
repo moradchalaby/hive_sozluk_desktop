@@ -37,7 +37,7 @@ class _MainPageState extends State<MainPage> {
     Widget leftSimpleDrawer = SimpleDrawer(
       child: Container(
         padding: EdgeInsets.only(top: 25),
-        color: CustomColors.renk4,
+        color: CustomColors.renk4, //! menu renk
         height: MediaQuery.of(context).size.height,
         width: 150,
         child: Column(
@@ -50,7 +50,13 @@ class _MainPageState extends State<MainPage> {
                     pcontroller.jumpToPage(0);
                     SimpleDrawer.deactivate("left");
                   },
-                  child: Text('Kelime Ara')),
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(CustomColors.siyah)),
+                  child: Text(
+                    'Kelime',
+                    style: Theme.of(context).textTheme.bodyText1,
+                  )),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -59,10 +65,13 @@ class _MainPageState extends State<MainPage> {
                     pcontroller.jumpToPage(1);
                     SimpleDrawer.deactivate("left");
                   },
-                  child: AutoSizeText(
-                    'Mana ve Kafiye Ara',
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(CustomColors.siyah)),
+                  child: Text(
+                    'Kafiye ve Mânâ',
                     maxLines: 1,
-                    style: TextStyle(fontSize: 14),
+                    style: Theme.of(context).textTheme.headline5,
                   )),
             ),
           ],
@@ -253,7 +262,7 @@ class _MainPageState extends State<MainPage> {
                           controller: mcontroller,
                           decoration: new InputDecoration(
                               hintText: 'Mana Ara...',
-                              hintStyle: Theme.of(context).textTheme.headline5,
+                              hintStyle: Theme.of(context).textTheme.bodyText1,
                               border: InputBorder.none),
                           onChanged: (value) {
                             textim(mcontroller);

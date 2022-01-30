@@ -114,15 +114,13 @@ class _ListManaAraManaState extends State<ListManaAraMana> {
                             child: SingleChildScrollView(
                               controller: ScrollController(),
                               scrollDirection: Axis.vertical, //.horizontal
-                              child: SelectableText(
-                                kelime.text,
-                                // minFontSize: 4,
-                                textAlign: TextAlign.start,
-                                maxLines: 1,
-                                style: kelime.deyimid == 0
-                                    ? Theme.of(context).textTheme.headline1
-                                    : Theme.of(context).textTheme.headline4,
-                              ),
+                              child: SelectableText(kelime.text,
+                                  // minFontSize: 4,
+                                  textAlign: TextAlign.start,
+                                  maxLines: 1,
+                                  style: kelime.deyimid == 0
+                                      ? Theme.of(context).textTheme.subtitle1
+                                      : Theme.of(context).textTheme.subtitle2),
                             ),
                           ),
                         ),
@@ -176,7 +174,7 @@ class _ListManaAraManaState extends State<ListManaAraMana> {
                                 margin:
                                     EdgeInsets.only(left: 40.0, right: 20.0),
                                 child: StyledText(
-                                  textAlign: TextAlign.justify,
+                                  textAlign: TextAlign.start,
                                   text: ((firstChar
                                           ? '<_>' +
                                               (say).toString() +
@@ -188,22 +186,26 @@ class _ListManaAraManaState extends State<ListManaAraMana> {
                                   tags: {
                                     '_': StyledTextTag(
                                         style: TextStyle(
-                                            color: CustomColors.mavi)),
+                                            color:
+                                                CustomColors.rakam)), //?sayılar
                                     '*': StyledTextTag(
                                         style: TextStyle(
-                                            color: CustomColors.sari)),
+                                            color: CustomColors.aruz)), //?Aruz
                                     '#': StyledTextTag(
                                         style: TextStyle(
-                                            height: 2,
+                                            height: 1,
                                             fontStyle: FontStyle.italic,
-                                            color: CustomColors.renk3)),
+                                            color:
+                                                CustomColors.ornek)), //?örnek
                                     '%': StyledTextTag(
-                                        style:
-                                            TextStyle(color: CustomColors.gri)),
+                                        style: TextStyle(
+                                            color: CustomColors
+                                                .aciklama)), //?değişim açıklama
                                     '^': StyledTextTag(
                                         style: TextStyle(
                                             height: 2,
-                                            color: CustomColors.kirmizi)),
+                                            color:
+                                                CustomColors.tur)), //?özellik
                                   },
                                 ),
                               );
