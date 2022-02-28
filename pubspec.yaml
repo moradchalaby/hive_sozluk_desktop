@@ -58,10 +58,12 @@ dependencies:
   double_back_to_close_app: ^2.0.1
   #kısayol tuşları
   keyboard_shortcuts: ^0.1.4
-
+  draggable_scrollbar: ^0.1.0
   #ekran fotosu alma
   screenshot: ^0.3.0
   desktop_window: ^0.4.0
+  adaptive_scrollbar: ^2.1.2
+
   #paylaşma
   #share_plus: ^2.1.2
 dev_dependencies:
