@@ -1,9 +1,9 @@
 import 'dart:async';
 
-import 'package:diacritic/diacritic.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_sozluk_desktop/widget/class/diactritica/diactritica.dart';
 import 'package:turkish/turkish.dart';
 import '../main.dart';
 
@@ -67,7 +67,8 @@ class ManaAraModelImplementation extends ManaAraModel {
             ((a.mana.join(' '))
                     .toLowerCaseTr()
                     .contains(_searchm.toLowerCaseTr()) &&
-                (a.text.toLowerCaseTr()).endsWith(_searchk.toLowerCaseTr())))
+                (removeDiacriticsa(a.text).toLowerCaseTr())
+                    .endsWith(removeDiacriticsa(_searchk).toLowerCaseTr())))
         .toList();
     if (_items.isNotEmpty) {
       _mana = kelimeler
