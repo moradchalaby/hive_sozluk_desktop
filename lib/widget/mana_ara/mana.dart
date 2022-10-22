@@ -1,17 +1,12 @@
 //? listview e consumer eklenecek
 
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_sozluk_desktop/model/debouncer.dart';
 import 'package:hive_sozluk_desktop/model/theme/colors.dart';
-import 'package:hive_sozluk_desktop/provider/kelime_ara_list.dart';
 import 'package:hive_sozluk_desktop/provider/mana_ara_list.dart';
-import 'package:hive_sozluk_desktop/widget/kelime_ara/kelime_ara_list_widget.dart';
 import 'package:styled_text/styled_text.dart';
-import 'package:styled_text/tags/styled_text_tag.dart';
-import 'package:styled_text/tags/styled_text_tag_action.dart';
 
 import '../../main.dart';
 

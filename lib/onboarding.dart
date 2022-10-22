@@ -29,7 +29,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
     // Alternative
     // getIt.getAsync<AppModel>().addListener(update);
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (BuildContext context) => MainPage()),

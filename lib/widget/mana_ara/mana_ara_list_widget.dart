@@ -39,7 +39,7 @@ class _ManaAraListState extends State<ManaAraList> {
   void update() => setState(() => {});
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     return FutureBuilder(
         future: getIt.allReady(),
         builder: (context, snapshot) {

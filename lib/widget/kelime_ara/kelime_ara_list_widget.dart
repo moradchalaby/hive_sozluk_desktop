@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hive_sozluk_desktop/model/theme/colors.dart';
 
 import 'package:hive_sozluk_desktop/widget/kelime_ara/kelime.dart';
 import 'package:hive_sozluk_desktop/widget/kelime_ara/mana.dart';
@@ -15,13 +14,13 @@ class KelimeAraList extends StatefulWidget {
 class _KelimeAraListState extends State<KelimeAraList> {
   @override
   void initState() {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     return FutureBuilder(
         future: getIt.allReady(),
         builder: (context, snapshot) {

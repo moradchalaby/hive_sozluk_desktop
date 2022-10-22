@@ -6,12 +6,10 @@ import 'package:hive/hive.dart';
 import 'package:hive_sozluk_desktop/model/theme/colors.dart';
 import 'package:hive_sozluk_desktop/provider/mana_ara_list.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:simple_drawer/simple_drawer.dart';
 
 import 'main.dart';
 import 'mainPage.dart';
 import 'model/debouncer.dart';
-import 'onboarding.dart';
 import 'provider/kelime_ara_list.dart';
 
 class YukleniyorPage extends StatefulWidget {
@@ -57,7 +55,7 @@ class _YukleniyorPageState extends State<YukleniyorPage> {
 
   @override
   void initState() {
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.top]);
     super.initState();
     sozlukBox = Hive.box<Sozluk>('Sozluk');
     manaListele();

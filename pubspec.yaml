@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -36,16 +36,15 @@ dependencies:
   provider: ^5.0.0
   path_provider: ^2.0.1
   hive_flutter: ^1.0.0
-  hexcolor: ^2.0.5  
+  hexcolor: ^2.0.5
   #super_rich_text: ^0.2.1+1
   hive: ^2.0.4
   flex_color_scheme: ^2.1.1
-  styled_text: ^3.0.4
+  styled_text: ^5.1.0
   sembast: ^3.0.2
   get_it: ^7.1.2
-  url_launcher: ">=5.5.3" 
-  #progressbar
-  percent_indicator: ^3.0.1
+  url_launcher: ^6.1.5 #progressbar
+  percent_indicator: ^4.2.2
   # başlama ekranı
   introduction_screen: ^2.1.0
   #Çekmecce
@@ -76,7 +75,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

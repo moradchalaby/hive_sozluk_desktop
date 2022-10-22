@@ -1,12 +1,8 @@
-import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_sozluk_desktop/main.dart';
-import 'package:hive_sozluk_desktop/model/debouncer.dart';
-import 'package:hive_sozluk_desktop/model/theme/colors.dart';
 import 'package:hive_sozluk_desktop/provider/kelime_ara_list.dart';
-import 'package:simple_drawer/simple_drawer.dart';
 
 sapkalifonk(TextEditingController controller, String harf) {
   controller.text = controller.text + harf;

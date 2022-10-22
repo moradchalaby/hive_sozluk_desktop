@@ -1,7 +1,5 @@
-import 'dart:async';
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_sozluk_desktop/model/debouncer.dart';
@@ -58,7 +56,7 @@ class _ListKelimeState extends State<ListKelime> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     return Container(
       margin: EdgeInsets.zero,
       padding: EdgeInsets.zero,

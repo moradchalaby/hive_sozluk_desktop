@@ -1,16 +1,11 @@
-import 'dart:ui';
 
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:draggable_scrollbar/draggable_scrollbar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_sozluk_desktop/model/debouncer.dart';
 import 'package:hive_sozluk_desktop/model/theme/colors.dart';
-import 'package:hive_sozluk_desktop/provider/kelime_ara_list.dart';
 import 'package:hive_sozluk_desktop/provider/mana_ara_list.dart';
-import 'package:hive_sozluk_desktop/widget/class/customclass.dart';
 
 import '../../main.dart';
 
@@ -116,7 +111,7 @@ class _ListManaAraKelimeState extends State<ListManaAraKelime> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     return RawKeyboardListener(
       onKey: _handleKeyEvent,
       autofocus: true,
